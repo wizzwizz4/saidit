@@ -66,6 +66,7 @@
       check = getVideoExtension($thing.attr('href'));
       if (check) {
         $thing.after(' <a class="' + buttonClass + ' ' + buttonClosedClass + '" data-type="video" data-expando-exists="false" href="javascript:void(0);">' + check + '</a> ');
+        return;
       }
       check = getEmbedUrlYouTube($thing.attr('href'));
       if (check) {
@@ -126,6 +127,7 @@
           break;
         case 'video':
           $button.after('<div class="md-expando"><video controls preload="auto" src="' + $button.prev().attr('href') + '"></video></div>');
+          break;
         case 'youtube':
           $button.after('<div class="md-expando"><iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube-nocookie.com/embed/' + $button.data('video-url') + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>');
           break;
